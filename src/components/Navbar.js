@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { AiOutlineMenu,AiOutlineSearch,AiOutlineClose,AiFillTag} from 'react-icons/ai'
 import {BsFillCartFill,BsFillSaveFill} from 'react-icons/bs'
 import {TbTruckDelivery} from 'react-icons/tb'
@@ -7,10 +7,12 @@ import {MdFavorite,MdHelp} from 'react-icons/md'
 
 
 const Navbar = () => {
+const [nav, setNav] = useState(false)
+
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4'>
       <div className='flex items-center'>
-        <div className='cursor-pointer'>
+        <div onClick = {() => setNav(!nav)} lassName='cursor-pointer'>
           <AiOutlineMenu size={30} />
         </div>
         <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
@@ -35,7 +37,8 @@ const Navbar = () => {
       
       {/* Mobile menu */}
       {/* Overlay */}
-      <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div>
+      {nav ? <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div> : ''}
+      
      
       {/*Side drawer menu*/}
       <div className='fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300'>
