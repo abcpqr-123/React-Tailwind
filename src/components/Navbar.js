@@ -7,7 +7,7 @@ import {MdFavorite,MdHelp} from 'react-icons/md'
 
 
 const Navbar = () => {
-const [nav, setNav] = useState(false)
+const [nav, setNav] = useState(true)
 
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4'>
@@ -41,8 +41,9 @@ const [nav, setNav] = useState(false)
       
      
       {/*Side drawer menu*/}
-      <div className='fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300'>
+      <div className={nav ? 'fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300':'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
         <AiOutlineClose
+           onClick={() => setNav(!nav)}
           size={30}
           className='absolute right-4 top-4 cursor-pointer'/>
 
